@@ -1,0 +1,28 @@
+<div class="container mt-4">
+    <div class="contacto-form card p-4">
+      <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
+        <div class="mb-3">
+          <label for="email" class="form-label">Email:</label>
+          <input type="email" id="email" name="email" ngModel required class="form-control" />
+        </div>
+  
+        <div class="mb-3">
+          <label for="subject" class="form-label">Asunto:</label>
+          <input type="text" id="subject" name="subject" ngModel required class="form-control" />
+        </div>
+  
+        <div class="mb-3">
+          <label for="message" class="form-label">Mensaje:</label>
+          <textarea id="message" name="message" ngModel required class="form-control"></textarea>
+        </div>
+  
+        <div class="mb-3 form-check">
+          <input type="checkbox" id="privacyPolicy" name="privacyPolicy" ngModel required class="form-check-input" />
+          <label for="privacyPolicy" class="form-check-label">Acepto la política de privacidad</label>
+        </div>
+  
+        <button type="submit" class="btn btn-primary" [disabled]="!contactForm.valid">Enviar</button>
+      </form>
+    </div>
+  </div>
+  

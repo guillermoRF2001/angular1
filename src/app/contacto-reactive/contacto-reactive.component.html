@@ -1,0 +1,33 @@
+<div class="contacto-form">
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+      <label for="email">Email:</label>
+      <input type="email" id="email" formControlName="email" />
+      <div *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched">
+        <small *ngIf="contactForm.get('email')?.errors?.['required']">El email es obligatorio.</small>
+        <small *ngIf="contactForm.get('email')?.errors?.['email']">Debe ser un email válido.</small>
+      </div>
+  
+      <label for="subject">Asunto:</label>
+      <input type="text" id="subject" formControlName="subject" />
+      <div *ngIf="contactForm.get('subject')?.invalid && contactForm.get('subject')?.touched">
+        <small>El asunto es obligatorio.</small>
+      </div>
+  
+      <label for="message">Mensaje:</label>
+      <textarea id="message" formControlName="message"></textarea>
+      <div *ngIf="contactForm.get('message')?.invalid && contactForm.get('message')?.touched">
+        <small>El mensaje es obligatorio.</small>
+      </div>
+  
+      <label>
+        <input type="checkbox" id="privacyPolicy" formControlName="privacyPolicy" />
+        Acepto la política de privacidad
+      </label>
+      <div *ngIf="contactForm.get('privacyPolicy')?.invalid && contactForm.get('privacyPolicy')?.touched">
+        <small>Debes aceptar la política de privacidad.</small>
+      </div>
+  
+      <button type="submit" [disabled]="contactForm.invalid">Enviar</button>
+    </form>
+  </div>
+  

@@ -1,0 +1,21 @@
+<div class="container mt-4">
+    <div class="row">
+      <div class="col-12 col-md-4" *ngFor="let cart of carts">
+        <div class="card">
+          <div class="card-header">
+            <h5>Cart #{{ cart.id }}</h5>
+          </div>
+          <div class="card-body">
+            <div *ngFor="let product of cart.products" class="product-card mb-3">
+              <img [src]="product.thumbnail" class="card-img-top" alt="{{ product.title }}">
+              <div class="card-body">
+                <h5 class="card-title">{{ product.title }}</h5>
+                <p class="card-text">Price: ${{ product.price }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
